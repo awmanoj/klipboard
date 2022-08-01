@@ -1,7 +1,8 @@
 module.exports = {
 	index: function(req, res) {
-		res.send('image.index controller ' + 
-			req.params.image_id);
+		//res.send('image.index controller ' + 
+		//	req.params.image_id);
+		res.render('image');
 	}, 
 	create: function(req, res) {
 		res.send('image:create POST controller'); 
