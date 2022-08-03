@@ -7,7 +7,8 @@ var path = require('path'),
 	morgan = require('morgan'),
 	methodOverride = require('method-override'),
 	errorHandler = require('errorhandler'),
-	moment = require('moment');
+	moment = require('moment'),
+	multer = require('multer');
 
 module.exports = function(app) {
 	app.use(morgan('dev'));
@@ -16,6 +17,7 @@ module.exports = function(app) {
 	app.use(methodOverride());
 	app.use(cookieParser(process.env.KLIPBOARD_SECRET || 'k133pb0ard'));
 	routes(app);
+	//app.use(multer({dest: path.join(__dirname, 'public/upload/temp')}).any());
 	app.use('/public/', express.static(path.join(__dirname, '../public')));
 
 	if ('development' == app.get('env')) {
